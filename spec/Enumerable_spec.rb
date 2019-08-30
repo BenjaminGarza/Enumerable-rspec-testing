@@ -1,4 +1,4 @@
-require "./ennMethods.rb"
+require_relative "../ennMethods.rb"
 
 
 
@@ -110,4 +110,21 @@ RSpec.describe Enumerable do
        end
      end
   end
+
+  describe "my_inject" do
+    it "checks my_inject" do
+    my_result = [1,2,5,4,6].my_inject {|result, element| result + element }
+    result = [1,2,5,4,6].inject {|result, element| result + element}
+    expect(my_result).to eql(result)
+    end
+   end
+
+   describe "my_multiply_els" do
+    it "checks my_inject" do
+    my_result = multiply_els([1,2,3,4,6])
+    result = [1,2,3,4,6].inject {|result,element| result * element}
+    expect(my_result).to eql(result)
+    end
+   end
+
 end
